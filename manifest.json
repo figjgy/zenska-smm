@@ -1,0 +1,24 @@
+{
+  "name": "Zenska SMM Command Center",
+  "short_name": "Zenska SMM",
+  "description": "Single-user social media management dashboard for Zenska.ph",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#5C0A3F",
+  "theme_color": "#5C0A3F",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
