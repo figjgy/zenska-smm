@@ -36,12 +36,18 @@ window.App = {
     if (!root) return;
 
     // Update active nav button
-    document.querySelectorAll(".nav-item-btn").forEach(btn => {
+    document.querySelectorAll(".sidebar-nav-item, .nav-item-btn").forEach(btn => {
       btn.classList.toggle("active", btn.getAttribute("data-view") === viewName);
     });
     document.querySelectorAll(".mobile-nav-btn").forEach(btn => {
       btn.classList.toggle("active", btn.getAttribute("data-view") === viewName);
     });
+
+    // Control right sidebar visibility (visible on home dashboard, hidden on full views)
+    const rightSidebar = document.getElementById("intelly-right-sidebar");
+    if (rightSidebar) {
+      rightSidebar.style.display = (viewName === "home" && window.innerWidth > 1180) ? "flex" : "none";
+    }
 
     // Update View Title in Top Bar
     const titles = {

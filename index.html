@@ -12,10 +12,10 @@
   <meta name="apple-mobile-web-app-title" content="Zenska SMM">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
   
-  <!-- Luxury Editorial Fonts -->
+  <!-- Official Zenska Typography: Work Sans (from zenska.ph) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons & Chart.js -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -33,9 +33,11 @@
   <!-- Topbar with Device Viewport Switcher -->
   <div class="app-topbar">
     <div class="topbar-left">
-      <span style="font-weight: 700; color: #FFF; letter-spacing: -0.01em;">Zenska.ph</span>
-      <span style="color: #9C8595; font-size: 11px;">| SMM Command Center</span>
-      <span class="badge badge-verified" style="font-size: 10px; padding: 1px 6px;">
+      <a href="https://zenska.ph" target="_blank" style="display: inline-flex; align-items: center; gap: 8px;">
+        <img src="assets/zenska-logo.png" alt="zenska.ph" class="topbar-brand-logo">
+      </a>
+      <span class="topbar-subtext">| SMM Command Center</span>
+      <span class="topbar-badge-verified">
         ● 320+ Verified Sellers
       </span>
     </div>
@@ -45,16 +47,16 @@
       <span style="font-size: 11px; color: #BFA8B9; font-weight: 500;">Device Layout:</span>
       <div class="simulator-pill-group">
         <button class="sim-btn active" data-mode="auto" onclick="window.App.setDeviceMode('auto')" title="Responsive browser viewport">
-          <i data-lucide="globe" style="width: 12px; height: 12px;"></i> Auto / Responsive
+          <i data-lucide="globe" style="width: 12px; height: 12px;"></i> Auto
         </button>
         <button class="sim-btn" data-mode="desktop" onclick="window.App.setDeviceMode('desktop')" title="Simulate Desktop / PC (≥1280px)">
-          <i data-lucide="monitor" style="width: 12px; height: 12px;"></i> Desktop (≥1280px)
+          <i data-lucide="monitor" style="width: 12px; height: 12px;"></i> Desktop
         </button>
         <button class="sim-btn" data-mode="tablet" onclick="window.App.setDeviceMode('tablet')" title="Simulate iPad / Tablet (768-1279px)">
-          <i data-lucide="tablet" style="width: 12px; height: 12px;"></i> iPad / Tablet (820px)
+          <i data-lucide="tablet" style="width: 12px; height: 12px;"></i> iPad
         </button>
         <button class="sim-btn" data-mode="phone" onclick="window.App.setDeviceMode('phone')" title="Simulate Mobile Phone (≤767px)">
-          <i data-lucide="smartphone" style="width: 12px; height: 12px;"></i> Phone (393px)
+          <i data-lucide="smartphone" style="width: 12px; height: 12px;"></i> Phone
         </button>
       </div>
     </div>
@@ -62,13 +64,13 @@
     <!-- Right: Utility shortcuts -->
     <div class="topbar-right">
       <button class="sim-btn" id="toggle-offline-btn" title="Toggle Network Offline Tolerance Simulation">
-        <i data-lucide="wifi" style="width: 13px; height: 13px;"></i> Offline Sim
+        <i data-lucide="wifi" style="width: 13px; height: 13px;"></i> Offline
       </button>
       <button class="sim-btn" id="toggle-dark-mode-btn" title="Toggle Dark Mode Theme">
         <i data-lucide="moon" class="dark-mode-icon" style="width: 13px; height: 13px;"></i> Theme
       </button>
       <button class="sim-btn" onclick="window.App.openShortcutsModal()" title="Keyboard Shortcuts (?)">
-        <i data-lucide="keyboard" style="width: 13px; height: 13px;"></i> Shortcuts
+        <i data-lucide="keyboard" style="width: 13px; height: 13px;"></i> Keys
       </button>
       <button class="sim-btn" id="reset-data-btn" title="Reset Demo Data">
         <i data-lucide="rotate-ccw" style="width: 13px; height: 13px;"></i> Reset
@@ -76,213 +78,164 @@
     </div>
   </div>
 
-  <!-- Simulator Outer Frame (Adjusts for desktop/tablet/phone simulation) -->
-  <div id="simulator-frame" class="simulator-outer-frame mode-auto">
+  <!-- Outer Floating Wrapper with Ambient Glassmorphic Orbs -->
+  <div class="app-outer-wrapper">
+    <div class="ambient-mesh-glow ambient-plum"></div>
+    <div class="ambient-mesh-glow ambient-rose"></div>
+    <div class="ambient-mesh-glow ambient-gold"></div>
     
-    <!-- App Shell Container -->
-    <div id="app-shell-container" class="app-shell-container">
+    <!-- Floating App Frame (Glassmorphic Rounded Canvas) -->
+    <div class="app-frame-container glass-canvas" id="app-shell-container">
       
-      <div class="main-app-layout">
+      <!-- Left Sleek Dark Sidebar -->
+      <aside class="sidebar-intelly glass-sidebar" id="app-sidebar">
         
-        <!-- Desktop & Tablet Persistent Sidebar Navigation -->
-        <aside class="app-sidebar" id="app-sidebar">
-          
-          <div class="sidebar-header">
-            <div class="brand-logo-symbol">Z</div>
-            <div class="brand-title-group">
-              <div class="brand-name">Zenska<span style="font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--rose-gold); margin-left: 2px;">.ph</span></div>
-              <div class="brand-tagline">Authentic Beauty Command</div>
-            </div>
+        <div class="sidebar-logo-row">
+          <div class="logo-text-intelly">
+            <img src="assets/zenska-logo.png" alt="zenska.ph" class="sidebar-brand-logo">
           </div>
-
-          <div class="sidebar-nav-container">
-            
-            <!-- Section 1: Core Operations -->
-            <div>
-              <div class="nav-section-title">Core Workspace</div>
-              <ul class="nav-list">
-                <li>
-                  <button class="nav-item-btn active" data-view="home">
-                    <i data-lucide="layout-dashboard" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Command Center</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="nav-item-btn" data-view="tasks">
-                    <i data-lucide="check-square" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Task & Kanban</span>
-                    <span class="nav-badge-pill badge-primary">8</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="nav-item-btn" data-view="calendar">
-                    <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Content Calendar</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Section 2: Engagement & Intelligence -->
-            <div>
-              <div class="nav-section-title">Intelligence & Care</div>
-              <ul class="nav-list">
-                <li>
-                  <button class="nav-item-btn" data-view="analytics">
-                    <i data-lucide="bar-chart-3" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Analytics & Growth</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="nav-item-btn" data-view="inbox">
-                    <i data-lucide="message-square" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Community / Inbox</span>
-                    <span class="nav-badge-pill badge-danger" title="Counterfeit Flagged Alerts">2🚩</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="nav-item-btn" data-view="influencers">
-                    <i data-lucide="users" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Influencer & KOLs</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Section 3: Creative & Strategy -->
-            <div>
-              <div class="nav-section-title">Content & Brand</div>
-              <ul class="nav-list">
-                <li>
-                  <button class="nav-item-btn" data-view="media">
-                    <i data-lucide="image" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Media Library</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="nav-item-btn" data-view="accounts">
-                    <i data-lucide="link-2" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Connected Accounts</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="nav-item-btn" data-view="library">
-                    <i data-lucide="bookmark" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Hashtag & Captions</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="nav-item-btn" data-view="campaigns">
-                    <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Campaign Layer</span>
-                  </button>
-                </li>
-                <li>
-                  <button class="nav-item-btn" data-view="competitor">
-                    <i data-lucide="radar" style="width: 16px; height: 16px;"></i>
-                    <span class="nav-item-text">Competitor Watch</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
+          <div class="sidebar-collapse-btn" title="Collapse Sidebar" onclick="document.getElementById('app-sidebar').classList.toggle('collapsed')">
+            ‹
           </div>
-
-          <!-- Bottom Trust Box -->
-          <div class="sidebar-trust-box">
-            <div class="trust-box-title">
-              <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
-              <span>Trust-First Metrics</span>
-            </div>
-            <div class="trust-stat-row">
-              <span>Authentic Catalog:</span>
-              <strong>12,000+</strong>
-            </div>
-            <div class="trust-stat-row">
-              <span>Shopper Rating:</span>
-              <strong style="color: var(--color-verified);">4.9★ Avg</strong>
-            </div>
-            <div class="trust-stat-row">
-              <span>Approval Speed:</span>
-              <strong>2-5 Days</strong>
-            </div>
-          </div>
-
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="main-content-wrapper">
-          
-          <!-- Sticky View Header Bar -->
-          <div class="view-header-bar">
-            <div class="view-header-left">
-              <div class="view-title-wrap">
-                <h1 class="view-title-main" id="header-view-title">Command Center</h1>
-                <span class="view-subtitle" id="header-view-subtitle">Zenska.ph Social Operations & Trust Radar</span>
-              </div>
-            </div>
-
-            <div class="view-header-right">
-              <!-- Search Box -->
-              <div class="search-input-wrap">
-                <i data-lucide="search" class="search-input-icon" style="width: 14px; height: 14px;"></i>
-                <input type="text" placeholder="Search tasks, copy, creators..." oninput="window.store.setSearchQuery(this.value)">
-                <span class="search-shortcut-hint">/</span>
-              </div>
-
-              <!-- Quick Add Action Button -->
-              <button class="btn btn-primary" onclick="window.App.openQuickAddModal()" title="Quick Add Task or Post (N / C)">
-                <i data-lucide="plus" style="width: 16px; height: 16px;"></i>
-                <span style="font-weight: 600;">Quick Add</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Dynamic View Container -->
-          <div class="content-viewport" id="view-root">
-            <!-- View components render here -->
-          </div>
-
-        </main>
-
-      </div>
-
-      <!-- Mobile Floating Action Button (FAB) -->
-      <button class="fab-quick-add" onclick="window.App.openQuickAddModal()" title="Quick Add Task or Post">
-        <i data-lucide="plus" style="width: 24px; height: 24px;"></i>
-      </button>
-
-      <!-- Mobile Purpose-Built Bottom Tab Bar (≤767px) -->
-      <nav class="mobile-bottom-nav">
-        <div class="mobile-nav-grid">
-          <button class="mobile-nav-btn active" data-view="home">
-            <i data-lucide="layout-dashboard" style="width: 18px; height: 18px;"></i>
-            <span>Home</span>
-          </button>
-          <button class="mobile-nav-btn" data-view="calendar">
-            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
-            <span>Calendar</span>
-          </button>
-          <button class="mobile-nav-btn" onclick="window.App.openCreatePostModal()">
-            <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--color-primary); color: #FFF; display: flex; align-items: center; justify-content: center; margin-top: -12px; box-shadow: 0 4px 10px rgba(92,10,63,0.3);">
-              <i data-lucide="plus" style="width: 20px; height: 20px;"></i>
-            </div>
-            <span style="margin-top: 2px;">Create</span>
-          </button>
-          <button class="mobile-nav-btn" data-view="analytics">
-            <i data-lucide="bar-chart-2" style="width: 18px; height: 18px;"></i>
-            <span>Analytics</span>
-          </button>
-          <button class="mobile-nav-btn" data-view="inbox">
-            <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i>
-            <span>Inbox</span>
-          </button>
         </div>
-      </nav>
+
+        <div style="flex: 1; overflow-y: auto;">
+          
+          <!-- General Section -->
+          <div class="sidebar-section-title">General</div>
+          <ul class="sidebar-nav-list">
+            <li>
+              <button class="sidebar-nav-item active" data-view="home">
+                <i data-lucide="layout-grid" style="width: 16px; height: 16px;"></i>
+                <span>Dashboard</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="calendar">
+                <i data-lucide="calendar" style="width: 16px; height: 16px;"></i>
+                <span>Schedule & Drops</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="tasks">
+                <i data-lucide="check-square" style="width: 16px; height: 16px;"></i>
+                <span>Tasks & Kanban</span>
+                <span class="nav-badge-pill">8</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="analytics">
+                <i data-lucide="pie-chart" style="width: 16px; height: 16px;"></i>
+                <span>Statistics & reports</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="inbox">
+                <i data-lucide="shield-alert" style="width: 16px; height: 16px;"></i>
+                <span>Authenticity & DMs</span>
+                <span class="nav-badge-pill" style="background:#EF4444; color:#FFF;">2🚩</span>
+              </button>
+            </li>
+          </ul>
+
+          <!-- Tools Section -->
+          <div class="sidebar-section-title">Tools & Creative</div>
+          <ul class="sidebar-nav-list">
+            <li>
+              <button class="sidebar-nav-item" data-view="influencers">
+                <i data-lucide="users" style="width: 16px; height: 16px;"></i>
+                <span>Influencer CRM</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="media">
+                <i data-lucide="image" style="width: 16px; height: 16px;"></i>
+                <span>Media Library</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="accounts">
+                <i data-lucide="link-2" style="width: 16px; height: 16px;"></i>
+                <span>Connected Channels</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="library">
+                <i data-lucide="bookmark" style="width: 16px; height: 16px;"></i>
+                <span>Hashtag & Captions</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="campaigns">
+                <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+                <span>Campaigns</span>
+              </button>
+            </li>
+            <li>
+              <button class="sidebar-nav-item" data-view="competitor">
+                <i data-lucide="compass" style="width: 16px; height: 16px;"></i>
+                <span>Competitor Watch</span>
+              </button>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px; font-size: 11px;">
+          <div style="color: #7A6574; font-size: 10px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">Zenska Trust Engine</div>
+          <div style="color: #D4BDCC; font-weight: 600;">12,000+ Authenticated SKUs</div>
+          <div style="color: #34D399; font-weight: 700; margin-top: 2px;">4.9★ Customer Rating</div>
+        </div>
+
+      </aside>
+
+      <!-- Center Main Content Area -->
+      <main class="main-center-content" id="view-root">
+        <!-- Views render here -->
+      </main>
+
+      <!-- Right Mini Calendar & Today's Timeline Sidebar -->
+      <aside class="sidebar-right-calendar glass-right-sidebar" id="intelly-right-sidebar">
+        <!-- Rendered by HomeView -->
+      </aside>
 
     </div>
 
   </div>
+
+  <!-- Mobile Floating Action Button (FAB) -->
+  <button class="fab-quick-add" onclick="window.App.openQuickAddModal()" title="Quick Add Task or Post">
+    <i data-lucide="plus" style="width: 24px; height: 24px;"></i>
+  </button>
+
+  <!-- Mobile Purpose-Built Bottom Tab Bar (≤767px) -->
+  <nav class="mobile-bottom-nav">
+    <div class="mobile-nav-grid">
+      <button class="mobile-nav-btn active" data-view="home">
+        <i data-lucide="layout-grid" style="width: 18px; height: 18px;"></i>
+        <span>Dashboard</span>
+      </button>
+      <button class="mobile-nav-btn" data-view="calendar">
+        <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
+        <span>Schedule</span>
+      </button>
+      <button class="mobile-nav-btn" onclick="window.App.openCreatePostModal()">
+        <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--zenska-plum); color: #FFF; display: flex; align-items: center; justify-content: center; margin-top: -12px; box-shadow: 0 4px 10px rgba(92,10,63,0.3);">
+          <i data-lucide="plus" style="width: 20px; height: 20px;"></i>
+        </div>
+        <span style="margin-top: 2px;">Create</span>
+      </button>
+      <button class="mobile-nav-btn" data-view="analytics">
+        <i data-lucide="pie-chart" style="width: 18px; height: 18px;"></i>
+        <span>Analytics</span>
+      </button>
+      <button class="mobile-nav-btn" data-view="inbox">
+        <i data-lucide="shield-alert" style="width: 18px; height: 18px;"></i>
+        <span>Inbox</span>
+      </button>
+    </div>
+  </nav>
 
   <!-- Application Scripts -->
   <script src="js/data.js"></script>
